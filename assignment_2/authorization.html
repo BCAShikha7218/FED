@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify API Authorization</title>
+</head>
+<body>
+    <h1>Authorize Access to Spotify API</h1>
+    <button onclick="authorizeSpotify()">Authorize</button>
+
+    <script>
+        const clientId = '6906f650da324cb29664ee06178a1ca6'; 
+        const redirectUri = 'http://127.0.0.1:5500/Asynchronous/spotify/author.html'; 
+
+        function authorizeSpotify() {
+            const scopes = 'user-read-private user-read-email'; 
+            const authorizeUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes)}`;
+
+            window.location.href = authorizeUrl;
+        }
+    </script>
+</body>
+</html>
